@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
+
 import ProfileData from "./ProfileData";
 import Followers from "./Followers";
+
 const Search = () => {
   const [name, setName] = useState("Gourab-18");
   const [toggle, setToggle] = useState(0);
@@ -77,14 +79,33 @@ const Search = () => {
   }, [toggle]);
   return (
     <>
-      <h1>Search Devs</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={name} onChange={(e) => searchDevs(e)} />
-        <button type="submit">Submit</button>
+      <form onSubmit={handleSubmit} className="flex justify-center mt-10">
+        <input
+          className="shadow appearance-none border rounded w-1/3 py-2 px-3  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          type="text"
+          value={name}
+          onChange={(e) => searchDevs(e)}
+          placeholder="Search Devs"
+        />
+        <p></p>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 ml-2 rounded"
+          type="submit"
+        >
+          Search
+        </button>
+        <span className="font-mono text-3xl text-sky-800 text-center  ml-6">
+          {" "}
+          Requests:{rateData.remaining}/{rateData.limit}{" "}
+        </span>
       </form>
-      {rateData.remaining}/{rateData.limit}
-      {/* <ProfileData info={info} rateData={rateData} /> */}
-      <Followers followers={followers} />
+
+      <ProfileData
+        info={info}
+        rateData={rateData}
+        followingPeople={followers}
+      />
+      {/* <Followers followers={followers} /> */}
     </>
   );
 };

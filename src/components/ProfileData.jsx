@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-const ProfileData = ({ info, rateData }) => {
+import IndivisualData from "./IndivisualData";
+import { GoRepo, GoGist } from "react-icons/go";
+import { FiUsers, FiUserPlus } from "react-icons/fi";
+import PersonalData from "./PersonalData";
+const ProfileData = ({ info, rateData, followingPeople }) => {
   console.log(info);
   const {
     avatar_url,
@@ -21,26 +25,59 @@ const ProfileData = ({ info, rateData }) => {
   const { limit, remaining } = rateData;
 
   // console.log(avatar_url);
+
+  const items = [
+    {
+      id: 1,
+      icon: <GoRepo />,
+
+      name: "Repos",
+      value: public_repos,
+      color: "pink",
+    },
+    {
+      id: 2,
+      icon: <FiUsers />,
+      name: "Followers",
+      value: followers,
+      color: "green",
+    },
+    {
+      id: 3,
+      icon: <FiUserPlus />,
+      name: "Following",
+      value: following,
+      color: "purple",
+    },
+    {
+      id: 4,
+      icon: <GoGist />,
+      name: "Gists",
+      value: public_gists,
+      color: "yellow",
+    },
+  ];
   return (
     <>
       {info && (
         <>
-          <div>
-            <p> Followers: {followers} </p>
+          <div className="flex justify-around mb-6 mt-16">
+            {/* <p> Followers: {followers} </p>
             <p>Following:{following} </p>
             <p> Repos:{public_repos} </p>
-            <p>Public Gists: {public_gists}</p>
-            <p>
-              <a href={html_url}>Github Link</a>
-            </p>
+            <p>Public Gists: {public_gists}</p> */}
+
+            {items.map((item) => {
+              return (
+                <article key={item.id}>
+                  <IndivisualData item={item} />
+                </article>
+              );
+            })}
           </div>
           <div></div>
           <div>
-            <img src={info.avatar_url} />
-            <p>Twitter: {twitter_username}</p>
-            <p>Location: {location}</p>
-            <p>Company:{company}</p>
-            <p>Bio: {bio}</p>
+            <PersonalData info={info} followingPeople={followingPeople} />
           </div>
         </>
       )}
