@@ -3,13 +3,19 @@ import { useState, useEffect } from "react";
 
 import ProfileData from "./ProfileData";
 import Followers from "./Followers";
-
+import Bar from "./charts/Bar";
+import Pie from "./charts/Pie";
+import Column from "./charts/Column";
+import Doughnut from "./charts/Doughnut";
+import ReposData from "./ReposData";
 const Search = () => {
   const [name, setName] = useState("Gourab-18");
   const [toggle, setToggle] = useState(0);
   const [info, setInfo] = useState({});
   const [rateData, setRateData] = useState(0);
   const [followers, setFollowers] = useState([]);
+
+  const [repos, setRepos] = useState([]);
   const baseUrl = "https://api.github.com/";
   const searchDevs = (e) => {
     setName(e.target.value);
@@ -42,7 +48,25 @@ const Search = () => {
       console.log(e);
     }
     callFollowers(url);
+    findRepos(url);
     checkRequests();
+  };
+
+  // finding Repos
+
+  const findRepos = async (url) => {
+    url = url + "/repos";
+
+    try {
+      const value = await fetch(url);
+
+      const data = await value.json();
+      //  this is an array
+      console.log(data[2].languages_url);
+      setRepos(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   // calling followers
@@ -54,7 +78,7 @@ const Search = () => {
 
       const data = await value.json();
 
-      console.log(data);
+      // console.log(data);
       setFollowers(data);
       // console.log(followers);
     } catch (e) {
@@ -105,7 +129,16 @@ const Search = () => {
         rateData={rateData}
         followingPeople={followers}
       />
-      {/* <Followers followers={followers} /> */}
+      <ReposData repos={repos} />
+      {/* <div className="flex mt-10">
+        <Bar />
+        <Pie />
+      </div>
+
+      <div className="flex">
+        <Column />
+        <Doughnut />
+      </div> */}
     </>
   );
 };

@@ -5,7 +5,7 @@ import { GoRepo, GoGist } from "react-icons/go";
 import { FiUsers, FiUserPlus } from "react-icons/fi";
 import PersonalData from "./PersonalData";
 const ProfileData = ({ info, rateData, followingPeople }) => {
-  console.log(info);
+  // console.log(info);
   const {
     avatar_url,
     followers,
