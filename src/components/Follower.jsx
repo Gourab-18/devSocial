@@ -1,7 +1,7 @@
 import React from "react";
 
 const Follower = ({ follower }) => {
-  const { node_id, login, avatar_url, url, html_url } = follower;
+  const { login, avatar_url, html_url } = follower;
 
   return (
     <>
@@ -11,6 +11,8 @@ const Follower = ({ follower }) => {
             className="rounded-full flex mt-2"
             style={{ height: "40px", width: "40px" }}
             src={avatar_url}
+            alt="Img"
+            rel="noreferrer"
           />
         </div>
         <div className="ml-4">

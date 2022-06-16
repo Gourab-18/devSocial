@@ -8,7 +8,7 @@ const Followers = ({ followers }) => {
         <div className="bg-white border-gray-200">
           {followers &&
             followers.map((follower) => {
-              const { node_id, login, avatar_url, url } = follower;
+              const { node_id } = follower;
               return (
                 <article key={node_id}>
                   <Follower follower={follower} />

@@ -1,22 +1,7 @@
 import React from "react";
-import ProfileData from "./ProfileData";
 import Followers from "./Followers";
 const PersonalData = ({ info, followingPeople }) => {
-  const {
-    avatar_url,
-    followers,
-    following,
-    public_repos,
-    followers_url,
-    gists_url,
-    name,
-    company,
-    location,
-    twitter_username,
-    html_url,
-    public_gists,
-    bio,
-  } = info;
+  const { name, company, location, twitter_username, html_url, bio } = info;
   return (
     <>
       <div className="flex justify-around">
@@ -26,6 +11,7 @@ const PersonalData = ({ info, followingPeople }) => {
               <div>
                 <img
                   className="object-contain h-20 w-20 rounded-full"
+                  alt="img"
                   src={info.avatar_url}
                 />
               </div>
@@ -39,7 +25,7 @@ const PersonalData = ({ info, followingPeople }) => {
               className=" bg-blue-500 hover:bg-blue-700 text-white font-bold rounded p-0 w-20 h-10 justify-center mt-4"
               type="submit"
             >
-              <a href={html_url} target="_blank">
+              <a href={html_url} target="_blank" rel="noreferrer">
                 Follow
               </a>
             </button>

@@ -3,10 +3,7 @@ import { useState, useEffect } from "react";
 
 import ProfileData from "./ProfileData";
 import Followers from "./Followers";
-import Bar from "./charts/Bar";
-import Pie from "./charts/Pie";
-import Column from "./charts/Column";
-import Doughnut from "./charts/Doughnut";
+
 import ReposData from "./ReposData";
 const Search = () => {
   const [name, setName] = useState("freeCodeCamp");
@@ -130,15 +127,6 @@ const Search = () => {
         followingPeople={followers}
       />
       <ReposData repos={repos} />
-      {/* <div className="flex mt-10">
-        <Bar />
-        <Pie />
-      </div>
-
-      <div className="flex">
-        <Column />
-        <Doughnut />
-      </div> */}
     </>
   );
 };

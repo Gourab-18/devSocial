@@ -1,30 +1,16 @@
 import React from "react";
-import styled from "styled-components";
 import IndivisualData from "./IndivisualData";
 import { GoRepo, GoGist } from "react-icons/go";
 import { FiUsers, FiUserPlus } from "react-icons/fi";
 import PersonalData from "./PersonalData";
-const ProfileData = ({ info, rateData, followingPeople }) => {
-  // console.log(info);
+const ProfileData = ({ info, followingPeople }) => {
   const {
-    avatar_url,
     followers,
     following,
     public_repos,
-    followers_url,
-    gists_url,
-    name,
-    company,
-    location,
-    twitter_username,
-    html_url,
+
     public_gists,
-    bio,
   } = info;
-
-  const { limit, remaining } = rateData;
-
-  // console.log(avatar_url);
 
   const items = [
     {
@@ -62,11 +48,6 @@ const ProfileData = ({ info, rateData, followingPeople }) => {
       {info && (
         <>
           <div className="flex justify-around mb-6 mt-16">
-            {/* <p> Followers: {followers} </p>
-            <p>Following:{following} </p>
-            <p> Repos:{public_repos} </p>
-            <p>Public Gists: {public_gists}</p> */}
-
             {items.map((item) => {
               return (
                 <article key={item.id}>
