@@ -9,7 +9,7 @@ import Column from "./charts/Column";
 import Doughnut from "./charts/Doughnut";
 import ReposData from "./ReposData";
 const Search = () => {
-  const [name, setName] = useState("Gourab-18");
+  const [name, setName] = useState("freeCodeCamp");
   const [toggle, setToggle] = useState(0);
   const [info, setInfo] = useState({});
   const [rateData, setRateData] = useState(0);

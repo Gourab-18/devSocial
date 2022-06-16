@@ -59,8 +59,8 @@ const Column = ({ data }) => {
       chart: {
         caption: "Most Popular", //Set the chart caption
         // subCaption: "In MMbbl = One Million barrels", //Set the chart subcaption
-        xAxisName: "Country", //Set the x-axis name
-        yAxisName: "Reserves (MMbbl)", //Set the y-axis name
+        xAxisName: "Repos", //Set the x-axis name
+        yAxisName: "Stars", //Set the y-axis name
         numberSuffix: "K",
         theme: "fusion", //Set the theme for your chart
       },

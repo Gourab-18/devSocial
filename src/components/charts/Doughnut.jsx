@@ -60,8 +60,6 @@ const Doughnut = ({ data }) => {
       chart: {
         caption: "Stats per language", //Set the chart caption
 
-        xAxisName: "Country", //Set the x-axis name
-        yAxisName: "Reserves (MMbbl)", //Set the y-axis name
         numberSuffix: "K",
         theme: "fusion", //Set the theme for your chart
       },

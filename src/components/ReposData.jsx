@@ -4,16 +4,21 @@ import Pie from "./charts/Pie";
 import Doughnut from "./charts/Doughnut";
 import Column from "./charts/Column";
 const ReposData = ({ repos }) => {
+  // very very important part
   const languages = repos.reduce((total, item) => {
+    // destructuring the object
     const { language, stargazers_count } = item;
     if (!language) return total;
+    // if no element till now then this
     if (!total[language]) {
       total[language] = {
         label: language,
         value: 1,
         stars: stargazers_count,
       };
-    } else {
+    }
+    // if elements are there then just add them up
+    else {
       total[language] = {
         ...total[language],
         value: total[language].value + 1,
