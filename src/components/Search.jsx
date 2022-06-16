@@ -2,16 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 import ProfileData from "./ProfileData";
-import Followers from "./Followers";
 
 import ReposData from "./ReposData";
 const Search = () => {
   const [name, setName] = useState("freeCodeCamp");
-  const [toggle, setToggle] = useState(0);
+  // const [toggle, setToggle] = useState(0);
   const [info, setInfo] = useState({});
   const [rateData, setRateData] = useState(0);
   const [followers, setFollowers] = useState([]);
-
+  const [fName, setFname] = useState("freeCodeCamp");
   const [repos, setRepos] = useState([]);
   const baseUrl = "https://api.github.com/";
   const searchDevs = (e) => {
@@ -27,7 +26,9 @@ const Search = () => {
 
   const callApi = (name) => {
     // console.log(name);
-    setToggle(!toggle);
+
+    setFname(name);
+    // setToggle(!toggle);
   };
   const fetchData = async (name) => {
     // console.log(name);
@@ -59,7 +60,7 @@ const Search = () => {
 
       const data = await value.json();
       //  this is an array
-      console.log(data[2].languages_url);
+      // console.log(data[2].languages_url);
       setRepos(data);
     } catch (e) {
       console.log(e);
@@ -68,8 +69,8 @@ const Search = () => {
 
   // calling followers
   const callFollowers = async (url) => {
-    url = url + "/" + "followers";
-
+    // url = url + / + "followers";
+    url = `${url}/followers`;
     try {
       const value = await fetch(url);
 
@@ -96,8 +97,8 @@ const Search = () => {
     }
   };
   useEffect(() => {
-    fetchData(name);
-  }, [toggle]);
+    fetchData(fName);
+  }, [fName]);
   return (
     <>
       <form onSubmit={handleSubmit} className="flex justify-center mt-10">

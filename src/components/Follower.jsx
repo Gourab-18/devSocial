@@ -18,7 +18,7 @@ const Follower = ({ follower }) => {
         <div className="ml-4">
           <span className="font-bold"> {login} </span>
           <p>
-            <a href={html_url} target="_blank">
+            <a href={html_url} target="_blank" rel="noreferrer">
               {html_url}
             </a>
           </p>
