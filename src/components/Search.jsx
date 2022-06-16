@@ -98,6 +98,7 @@ const Search = () => {
   };
   useEffect(() => {
     fetchData(fName);
+    //eslint-disable-next-line
   }, [fName]);
   return (
     <>
